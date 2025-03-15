@@ -87,7 +87,7 @@
     <section id="contatos" class="contatos">
         <h2 class="contatos-titulo">Entre em contato</h2>
 
-        <form class="formulario-contato" id="formulario">
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
             <div class="grupo-form">
                 <input placeholder="Nome" class="campo-form" id="nome">
             </div>
@@ -95,21 +95,31 @@
             <div class="grupo-form">
                 <textarea class="campo-form" placeholder="Digite sua mensagem" rows="6" id="mensagem"></textarea>
             </div>
+
             <button type="submit" class="botao-form">Enviar via WhatsApp</button>
         </form>
     </section>
 
     <script>
-         const nome = document.getElementById('nome');
-         const mensagem = document.getElementById("mensagem");
-         const telefone = "5588993009661"
+        function enviarWhats(event) {
+            event.preventDefault()
 
-         const texto = `Olá! Me chamo ${nome}, ${mensagem}`
-         const msgFormatada = encodeURIComponent(texto)
 
-         const url = `https://whatsa.me/${telefone}/?t=${msgFormatada}`
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById("mensagem").value;
+            const telefone = "5588993009661"
 
-         window.open(url, '_blank')
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`
+            const msgFormatada = encodeURIComponent(texto)
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            console.log(url)
+
+            window.open(url, '_blank')
+
+        }
+
     </script>
 
 </body>
