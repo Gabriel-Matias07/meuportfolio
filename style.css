@@ -11,8 +11,9 @@ html {
 
 :root {
     /*variaveis de cores*/
-    --primaria: #FF00FF;
+    --primaria: #ebebeb;
     --secundaria: #DA70D6;
+    --terciaria: #b64eb2;
     --escuro: #8A2BE2;
     --maisescuro: #9400D3;
     --claro: #E6E6FA;
@@ -28,7 +29,7 @@ body {
     position: fixed;
     /*pra fixar na tela*/
     top: 0;
-    background: rgba(165, 35, 115, 0.8);
+    background: var(--terciaria);
     width: 100%;
     z-index: 100;
     /*pra ficar na frente de todo mundo*/
@@ -190,7 +191,7 @@ h1 {
 .formulario-contato{
     max-width: 600px;
     margin: 0 auto;
-    background:  rgba(241, 5, 5, 0.07);
+    background:  rgba(230, 5, 5, 0.07);
     backdrop-filter: blur(5px);
     padding: 2rem;
     border: 1px solid var(--primaria);
@@ -201,7 +202,7 @@ h1 {
 .campo-form{
     width:100% ;
     padding: 1rem;
-    background:rgba(241, 5, 5, 0.07);
+    background:rgba(240, 240, 240, 0.07);
     border-radius: 8px;
     color: var(--claro);
     border:1 px solid var(--primaria);
@@ -210,11 +211,16 @@ h1 {
 
 .campo-form:focus{
     border-color: var(--escuro);
-    box-shadow: 0 0 10px rgba(23, 16, 211, 0.3);
+    box-shadow: 0 0 10px rgba(252, 252, 252, 0.3);
 }
 
 .grupo-form{
     margin-bottom: 1.5rem;
+}
+
+.campo-form::placeholder {
+    color: var(--claro);
+    opacity: 0.8;
 }
 
 .botao-form{
@@ -231,21 +237,25 @@ h1 {
 
 .botao-form:hover{
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(79,70,229,0.4);
+    box-shadow: 0 5px 15px rgba(211, 140, 233, 0.4);
 }
 
-.particulas{
+.particulas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; 
     z-index: -1;
+    pointer-events: none;
     opacity: 0.5;
     background: 
-    radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, var(--secundaria) 0% transparent 20%),  var(--maisescuro);
+        radial-gradient(circle at 20% 30%, var(--primaria) 10%, transparent 40%),
+        radial-gradient(circle at 80% 70%, var(--secundaria) 15%, transparent 50%),
+        radial-gradient(circle at 50% 50%, var(--terciaria) 20%, transparent 60%),
+        var(--maisescuro);
 }
+
 
 @keyframes flutuar{
     0%, 100%{
